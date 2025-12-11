@@ -5,7 +5,7 @@ namespace influxdb {
 
 #ifdef USE_BINARY_SENSOR
 void BinarySensorField::publish(std::string &line) const {
-  line += (this->sensor_->state ? 'T' : 'F');
+  line += (this->sensor_->state ? "1i" : "0i");
 }
 #endif
 

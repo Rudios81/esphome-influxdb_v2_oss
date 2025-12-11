@@ -82,9 +82,7 @@ MEASUREMENTS_SCHEMA = cv.All(
                     cv.Schema(
                         {
                             cv.GenerateID(): cv.declare_id(BinarySensorField),
-                            cv.Required(CONF_SENSOR_ID): cv.use_id(
-                                binary_sensor.BinarySensor
-                            ),
+                            cv.Required(CONF_SENSOR_ID): cv.use_id(binary_sensor.BinarySensor),
                             cv.Optional(CONF_NAME): valid_identifier,
                         }
                     ),
@@ -98,12 +96,8 @@ MEASUREMENTS_SCHEMA = cv.All(
                             cv.GenerateID(): cv.declare_id(SensorField),
                             cv.Required(CONF_SENSOR_ID): cv.use_id(sensor.Sensor),
                             cv.Optional(CONF_NAME): valid_identifier,
-                            cv.Optional(CONF_FORMAT, default="float"): cv.enum(
-                                SENSOR_FORMATS
-                            ),
-                            cv.Optional(
-                                CONF_ACCURACY_DECIMALS,
-                            ): cv.positive_not_null_int,
+                            cv.Optional(CONF_FORMAT, default="float"): cv.enum(SENSOR_FORMATS),
+                            cv.Optional(CONF_ACCURACY_DECIMALS,): cv.positive_not_null_int,
                             cv.Optional(CONF_RAW_STATE, default=False): cv.boolean,
                         }
                     ),
@@ -116,9 +110,7 @@ MEASUREMENTS_SCHEMA = cv.All(
                     cv.Schema(
                         {
                             cv.GenerateID(): cv.declare_id(TextSensorField),
-                            cv.Required(CONF_SENSOR_ID): cv.use_id(
-                                text_sensor.TextSensor
-                            ),
+                            cv.Required(CONF_SENSOR_ID): cv.use_id(text_sensor.TextSensor),
                             cv.Optional(CONF_NAME): valid_identifier,
                             cv.Optional(CONF_RAW_STATE, default=False): cv.boolean,
                         }
