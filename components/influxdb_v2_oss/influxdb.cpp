@@ -23,7 +23,7 @@ void SensorField::publish(std::string &line) const {
   case SensorFieldFormat::Float:
     char buf[64];
     value_accuracy_to_buf(buf, state, this->accuracy_decimals_);
-    line += buf
+    line += buf;
     break;
   case SensorFieldFormat::Integer:
     line += str_sprintf("%ldi", std::lroundf(state));
