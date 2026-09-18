@@ -66,7 +66,7 @@ protected:
   http_request::HttpRequestComponent *http_request_;
   std::string url_;
   std::string token_;
-  std::list<http_request::Header> headers_;
+  std::vector<http_request::Header> headers_;
 #ifdef USE_TIME
   time::RealTimeClock *clock_{nullptr};
   std::list<BacklogEntry> backlog_;
@@ -96,7 +96,7 @@ public:
   bool sensor_has_state() const override {
     return (this->sensor_ != nullptr) && this->sensor_->has_state();
   }
-  std::string sensor_object_id() const override { return this->sensor_->get_object_id(); }
+  std::string sensor_object_id() const override { return this->sensor_->get_object_id_to(); }
   void publish(std::string &line) const override;
 
 protected:
@@ -125,7 +125,7 @@ public:
   bool sensor_has_state() const override {
     return (this->sensor_ != nullptr) && this->sensor_->has_state();
   }
-  std::string sensor_object_id() const override { return this->sensor_->get_object_id(); }
+  std::string sensor_object_id() const override { return this->sensor_->get_object_id_to(); }
   void publish(std::string &line) const override;
 
 protected:
@@ -145,7 +145,7 @@ public:
   bool sensor_has_state() const override {
     return (this->sensor_ != nullptr) && this->sensor_->has_state();
   }
-  std::string sensor_object_id() const override { return this->sensor_->get_object_id(); }
+  std::string sensor_object_id() const override { return this->sensor_->get_object_id_to(); }
   void publish(std::string &line) const override;
 
 protected:
