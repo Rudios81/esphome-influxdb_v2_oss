@@ -125,7 +125,10 @@ public:
   bool sensor_has_state() const override {
     return (this->sensor_ != nullptr) && this->sensor_->has_state();
   }
-  std::string sensor_object_id() const override { return this->sensor_->get_object_id_to(); }
+  std::string sensor_object_id() const override { 
+    char buf[128];
+    return this->sensor_->get_object_id_to(std::span<char, 128>(buf, 128)); 
+  }
   void publish(std::string &line) const override;
 
 protected:
@@ -145,7 +148,10 @@ public:
   bool sensor_has_state() const override {
     return (this->sensor_ != nullptr) && this->sensor_->has_state();
   }
-  std::string sensor_object_id() const override { return this->sensor_->get_object_id_to(); }
+  std::string sensor_object_id() const override { 
+    char buf[128];
+    return this->sensor_->get_object_id_to(std::span<char, 128>(buf, 128)); 
+  }
   void publish(std::string &line) const override;
 
 protected:
